@@ -1,0 +1,12 @@
+<div class="question-container">
+  <h2>{{ question.type === 'capital' ? 'What is the capital of ' + question.country + '?' : '' }}</h2>
+  <h2 *ngIf="question.type === 'flag'">Which flag belongs to {{ question.country }}?</h2>
+  <h2 *ngIf="question.type === 'location'">Where is {{ question.country }} located?</h2>
+
+  <div class="options">
+    <button *ngFor="let option of question.options; let i = index"
+            (click)="selectAnswer(i)">
+      {{ option }}
+    </button>
+  </div>
+</div>

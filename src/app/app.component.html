@@ -1,0 +1,15 @@
+<h1>Geography Quiz</h1>
+<p>Question {{ currentIndex + 1 }} / {{ questions.length }}</p>
+
+<app-question
+  [question]="currentQuestion"
+  (answerSelected)="onAnswer($event)">
+</app-question>
+
+<button (click)="nextQuestion()" *ngIf="answered && currentIndex < questions.length - 1">
+  Next Question
+</button>
+
+<p *ngIf="currentIndex === questions.length - 1 && answered">
+  🎉 Quiz terminé !
+</p>
